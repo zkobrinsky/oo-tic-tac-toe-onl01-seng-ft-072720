@@ -44,16 +44,6 @@ class TicTacToe
 
   def move(move_location, input)
     @board[move_location] = input.to_s.capitalize
-
-    # attempt at additional functionality
-    # if move_location > 8 || move_location < 0
-    #   puts "invalid move"
-    # elsif input != "X" || input != "O"
-    #   puts "Did you mean X or O?"
-    # else
-    # binding.pry
-    # @board[move_location] = input.to_s.capitalize
-    # end
   end
 
   def position_taken?(index)
@@ -73,6 +63,7 @@ class TicTacToe
   end
 
   def turn
+
     puts "Please enter a number (1-9):"
     move = gets.chomp
     move = self.input_to_index(move)
@@ -82,23 +73,24 @@ class TicTacToe
       self.move(move, xo)
       self.display_board
     else
-      puts "invalid"
+      puts "Invalid move. Try again."
       move = gets.chomp
     end
-
   end
 
-    # if self.valid_move?(move)
-    #   xo = self.current_player
-    #   self.move(move, xo)
-    #   self.display_board
-    # else
-    #   puts "invalid"
-    #   move = gets.chomp
+  def won?
+    WIN_COMBINATIONS.each do |combo|
+      combo.each do |index|
+        binding.pry
+        puts "test"
+        end
+      end
+    #   binding.pry
+    #   # @board.include? combo
     # end
-    # binding.pry
 
-
-end
+    # ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+  end
 
 # binding.pry
+end
