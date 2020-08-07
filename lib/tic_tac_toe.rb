@@ -73,7 +73,19 @@ class TicTacToe
   end
 
   def turn
-    gets.chomp.capitalize
+    move = gets.chomp
+    move = self.input_to_index(move)
+
+    if self.valid_move?(move)
+      xo = self.current_player
+      self.move(move, xo)
+      self.display_board
+    else
+      puts "invalid"
+      move = gets.chomp
+    end
+    # binding.pry
+
   end
 
 
