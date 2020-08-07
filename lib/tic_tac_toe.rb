@@ -79,17 +79,24 @@ class TicTacToe
   end
 
   def won?
-    WIN_COMBINATIONS.each do |combo|
-      combo.each do |index|
+    win_check = []
+    win_data = []
+    WIN_COMBINATIONS.each do |win_combo|
+      win_combo.each do |value|
+        win_check << @board[value]
         binding.pry
-        puts "test"
         end
+          if win_check.uniq.size > 2
+            win_data = win_combo
+            # binding.pry
+          end
       end
-    #   binding.pry
-    #   # @board.include? combo
-    # end
-
-    # ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+      if win_data == []
+        false
+      else
+        win_data
+      end
+      # binding.pry
   end
 
 # binding.pry
