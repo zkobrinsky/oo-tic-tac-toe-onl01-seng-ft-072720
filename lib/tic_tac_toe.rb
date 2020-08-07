@@ -19,29 +19,26 @@ class TicTacToe
 
   def display_board
 
-    #attempt at abstraction
-    # @board.each_with_index do |value, i|
-    #   if (i % 3) == 0 && i < 7
-    #     # binding.pry
-    #     puts " #{@board[i-2..i].join(" | ")} "
-    #     puts "-----------"
-    #   else if (i % 3) == 0
-    #     puts " #{@board[i-2..i].join(" | ")} "
-    #
-    #   end
-    # end
+    #more abstract solution
+    @board.each.with_index(1) do |value, i|
+      if (i % 3) == 0 && i < 6
+        puts " #{@board[i-3..i-1].join(" | ")} "
+        puts "-----------"
+      elsif (i % 3) == 0
+        puts " #{@board[i-3..i-1].join(" | ")} "
+      end
+    end
 
         # literal solution:
-        puts " #{@board[0..2].join(" | ")} "
-        puts "-----------"
-        puts " #{@board[3..5].join(" | ")} "
-        puts "-----------"
-        puts " #{@board[6..8].join(" | ")} "
+        # puts " #{@board[0..2].join(" | ")} "
+        # puts "-----------"
+        # puts " #{@board[3..5].join(" | ")} "
+        # puts "-----------"
+        # puts " #{@board[6..8].join(" | ")} "
   end
 
   def input_to_index(string)
     string.to_i-1
-    # binding.pry
   end
 
 end
