@@ -13,6 +13,7 @@ class TicTacToe
     [2, 4, 6] #top-right to bottom-left diagonal
   ]
 
+
   def initialize
     @board = Array.new(9, " ")
   end
@@ -41,11 +42,41 @@ class TicTacToe
     string.to_i-1
   end
 
-  def move(o, x)
-    @board[0] = x.to_s
-    @board[4] = o.to_s
+  def move(move_location, input)
+    @board[move_location] = input.to_s.capitalize
+
+    # attempt at additional functionality
+    # if move_location > 8 || move_location < 0
+    #   puts "invalid move"
+    # elsif input != "X" || input != "O"
+    #   puts "Did you mean X or O?"
+    # else
     # binding.pry
+    # @board[move_location] = input.to_s.capitalize
+    # end
   end
+
+  def position_taken?(index)
+    @board[index] != " " ? true : false
+  end
+
+  def valid_move?(index)
+    @board[index] == " " ? true : false
+  end
+
+  def turn_count
+    @board.count {|index| index != " "}
+  end
+
+  def current_player
+    self.turn_count % 2 == 0 ? "X" : "O"
+  end
+
+  def turn
+    gets.chomp.capitalize
+  end
+
+
 
 end
 
