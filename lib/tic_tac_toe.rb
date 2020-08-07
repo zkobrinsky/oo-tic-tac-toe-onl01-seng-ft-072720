@@ -76,18 +76,27 @@ class TicTacToe
     move = gets.chomp
     move = self.input_to_index(move)
 
-    if self.valid_move?(move)
-      xo = self.current_player
-      self.move(move, xo)
-      self.display_board
-    else
+    until self.valid_move?(move) do
       puts "invalid"
-      move = gets.chomp
+      # binding.pry
+
+
     end
-    # binding.pry
+    xo = self.current_player
+    self.move(move, xo)
+    self.display_board
 
   end
 
+    # if self.valid_move?(move)
+    #   xo = self.current_player
+    #   self.move(move, xo)
+    #   self.display_board
+    # else
+    #   puts "invalid"
+    #   self.turn
+    # end
+    # binding.pry
 
 
 end
