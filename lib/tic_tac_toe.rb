@@ -78,14 +78,10 @@ class TicTacToe
 
     until self.valid_move?(move) do
       puts "invalid"
-      # binding.pry
-
-
     end
-    xo = self.current_player
-    self.move(move, xo)
-    self.display_board
-
+      xo = self.current_player
+      self.move(move, xo)
+      self.display_board
   end
 
     # if self.valid_move?(move)
