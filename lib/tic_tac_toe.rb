@@ -94,7 +94,7 @@ class TicTacToe
       if win_data == []
         false
       else
-        win_data
+        puts win_data
       end
       # binding.pry
   end
