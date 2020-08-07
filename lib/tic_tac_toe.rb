@@ -41,6 +41,12 @@ class TicTacToe
     string.to_i-1
   end
 
+  def move(o, x)
+    @board[0] = x.to_s
+    @board[4] = o.to_s
+    # binding.pry
+  end
+
 end
 
 # binding.pry
