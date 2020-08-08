@@ -79,24 +79,22 @@ class TicTacToe
   end
 
   def won?
-    win_check = []
     win_data = []
     WIN_COMBINATIONS.each do |sub_array|
       win_check = []
-      sub_array.each do |value|
-        win_check << @board[value]
+            sub_array.each do |value|
+            win_check << @board[value]
         # binding.pry
-        end
-          if win_check.uniq.size > 2
-            win_data = win_combo
+            end
+          if win_check.uniq.size == 3
+            win_data = sub_array
           end
       end
-      if win_data == []
-        false
-      else
-        win_data
-        # win_data.join(",")
-      end
+        if win_data == []
+          false
+        else
+          win_data
+        end
       # binding.pry
   end
 
