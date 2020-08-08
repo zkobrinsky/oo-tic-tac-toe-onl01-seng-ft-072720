@@ -145,7 +145,7 @@ class TicTacToe
     while !over?
       turn
     end
-    
+
     if over?
         puts "Congratulations #{over?}"
     end
