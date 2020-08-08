@@ -79,24 +79,39 @@ class TicTacToe
   end
 
   def won?
-    win_data = []
-    WIN_COMBINATIONS.each do |sub_array|
-      win_check = []
-            sub_array.each do |value|
-            win_check << @board[value]
-        # binding.pry
-            end
-          if win_check.uniq.size == 3
-            win_data = sub_array
-          end
+    WIN_COMBINATIONS.detect do |win_combo|
+      if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
+        return win_combo
+      elsif (@board[win_combo[0]]) == "O" && (@board[win_combo[1]]) == "O" && (@board[win_combo[2]]) == "O"
+        return win_combo
       end
-        if win_data == []
-          false
-        else
-          win_data
-        end
+    end
+
+    #more abstract solution
+    # win_data = []
+    # WIN_COMBINATIONS.each do |win_combo|
+    #   win_check = []
+    #         win_combo.each do |value|
+    #         win_check << @board[value]
+
+    #         end
+    #       if win_check.uniq.size == 3
+    #         win_data = win_combo
+    #       end
+    #   end
+    #     if win_data == []
+    #       false
+    #     else
+    #       win_data
+    #     end
       # binding.pry
   end
+
+  def full?
+    !@board.include? " "
+  end
+
+
 
 # binding.pry
 end
