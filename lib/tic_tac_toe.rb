@@ -147,7 +147,7 @@ class TicTacToe
     end
 
     if over?
-      binding.pry
+      # binding.pry
         puts "Congratulations #{over?}"
     end
 
