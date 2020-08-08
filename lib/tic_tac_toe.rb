@@ -111,6 +111,25 @@ class TicTacToe
     !@board.include? " "
   end
 
+  def draw?
+    if !won? && full?
+      true
+    else
+      false
+    end
+  end
+
+  def over?
+    if won? || draw?
+      true
+    else
+      false
+    end
+  end
+
+  def winner?
+
+  end
 
 
 # binding.pry
