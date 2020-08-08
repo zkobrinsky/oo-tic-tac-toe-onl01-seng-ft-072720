@@ -59,19 +59,19 @@ class TicTacToe
   end
 
   def current_player
-    self.turn_count % 2 == 0 ? "X" : "O"
+    turn_count % 2 == 0 ? "X" : "O"
   end
 
   def turn
 
     puts "Please enter a number (1-9):"
     move = gets.chomp
-    move = self.input_to_index(move)
+    move = input_to_index(move)
 
-    if self.valid_move?(move)
-      xo = self.current_player
-      self.move(move, xo)
-      self.display_board
+    if valid_move?(move)
+      xo = current_player
+      move(move, xo)
+      display_board
     else
       puts "Invalid move. Try again."
       move = gets.chomp
@@ -86,6 +86,8 @@ class TicTacToe
         return win_combo
       end
     end
+
+
 
     #more abstract solution
     # win_data = []
@@ -127,15 +129,23 @@ class TicTacToe
     end
   end
 
-  def winner?
+  def winner
     if over?
-    WIN_COMBINATIONS.detect do |win_combo|
+    WIN_COMBINATIONS.each do |win_combo|
       if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
         return "X"
       elsif (@board[win_combo[0]]) == "O" && (@board[win_combo[1]]) == "O" && (@board[win_combo[2]]) == "O"
         return "O"
       end
     end
+  end
+  end
+
+  def play
+    while !over?
+    turn
+    end
+
   end
 
 
